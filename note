@@ -1,1 +1,68 @@
+# Spring Security开发安全restful接口
+
+
+
+## 代码结构
+
+![1558955626150](C:\Users\Stephen\AppData\Roaming\Typora\typora-user-images\1558955626150.png)
+
+
+
+
+
+
+
+# RestFul接口开发
+
+post 、put、get、delete 
+
+
+
+## 测试类编写
+
+```java
+@RunWith(SpringRunner.class)
+@SpringBootTest
+public class UserControllerTest {
+
+    @Autowired
+    private WebApplicationContext wac;
+
+    private MockMvc mockMvc;
+
+    @Before   //准备上下文环境
+    public void setup(){
+        mockMvc = MockMvcBuilders.webAppContextSetup(wac).build();
+    }
+
+    @Test  //使用Mockmvc模拟请求
+    public void whenQuerySuccess() throws Exception {
+        mockMvc.perform(MockMvcRequestBuilders.get("/user")
+            .contentType(MediaType.APPLICATION_JSON_UTF8))
+            .andExpect(MockMvcResultMatchers.status().isOk())
+            .andExpect(MockMvcResultMatchers.jsonPath("$.length()").value(3));
+    }
+
+}
+```
+
+
+
+
+
+## 常用注解
+
++ @RestControoler
+
+  声明该类为Controller类并提供RestAPI
+
++ @RequestMapping
+
+  映射http请求到java方法
+
++ @RequestParam
+
+  映射请求参数到java方法参数
+
++ 
 
