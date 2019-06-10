@@ -1,4 +1,4 @@
-package com.stephen.web.controller;
+package com.demo.web.controller;
 
 
 import org.junit.Before;
@@ -33,7 +33,7 @@ public class UserControllerTest {
         mockMvc.perform(MockMvcRequestBuilders.get("/user")
             .contentType(MediaType.APPLICATION_JSON_UTF8))
             .andExpect(MockMvcResultMatchers.status().isOk())
-            .andExpect(MockMvcResultMatchers.jsonPath("$.length()").value(3));
+            .andExpect(MockMvcResultMatchers.jsonPath("$.length()").value(1));
     }
 
 
