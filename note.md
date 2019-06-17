@@ -68,6 +68,20 @@ public class UserControllerTest {
 
 
 
++ @PathVariable 将请求路径的值作为参数   
+
+```java
+@RequestMapping(value = "/user/{id}",method = RequestMethod.GET)
+public User info(@PathVariable String id){
+    System.out.println(id);
+    User user = new User();
+    user.setName("haha");
+    return user;
+}
+```
+
+支持正则表达式@RequestMapping(value = "/user/{id:\\d+}") ，id必须为数字
+
 
 
 
@@ -113,16 +127,26 @@ public class UserControllerTest {
 
 
 
+### 根据状态码返回处理页面
+
+​		在resources下建resources/error 新建404.jsp, 则可根据状态码跳转到自定义页面。
+
 
 
 ### 自定义处理机制
 
+​		默认使用抛出RuntimeExcepiton，但是可能不满足自定义异常处理，例如要在异常信息中加入一些业务数据等。
+
+
+
+@ControllerAdvice:  修饰的类可处理controller层的异常
+
+方法中使用@ExcepitonHandler(UserNotExistException.class)，则可在方法体重定义处理该异常的逻辑
 
 
 
 
-
-## 拦截Restfule
+## 拦截Restful
 
 
 
