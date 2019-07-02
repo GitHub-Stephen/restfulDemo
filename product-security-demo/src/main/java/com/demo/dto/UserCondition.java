@@ -1,4 +1,4 @@
-package com.demo.web.dto;
+package com.demo.dto;
 
 public class UserCondition {
 }

@@ -1,26 +1,32 @@
 package com.demo.web.controller;
 
 
-import com.demo.web.dto.User;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import com.demo.dto.User;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
+/**
+ * demo
+ * @author Stephen
+ */
 @RestController
 public class UserController {
 
-    @RequestMapping(value="/user",method = RequestMethod.GET)
-    public List<User> user(){
-        List<User> result = new ArrayList<>();
+    @GetMapping("/user")
+    public List<User> getUserInfo(){
+        List<User> resultList = new ArrayList<>();
         User user1 = new User();
-        user1.setName("jack");
-        user1.setPassword("222");
-        result.add(user1);
-
-        return result;
+        user1.setName("haha");
+        User user2 = new User();
+        user2.setName("hehe");
+        User user3 = new User();
+        user3.setName("xix1");
+        resultList.add(user1);
+        resultList.add(user2);
+        resultList.add(user3);
+        return resultList;
     }
 
 }
