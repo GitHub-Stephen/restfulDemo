@@ -49,7 +49,7 @@
     <modules>
         <module>../product-security-core</module>
         <module>../product-security-app</module>
-        <module>../product-security-broswer</module>
+        <module>../product-security-browser</module>
         <module>../product-security-demo</module>
     </modules>
 
